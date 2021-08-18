@@ -10,10 +10,9 @@
 <title>Login Page</title>
 </head>
 <body
-       <h2>HEY MAN</h2>
        <h3>Details Are</h3>
-       <h3>Employee ID : ${emp_id}</h3>
-       <h3>Employee Name : ${emp_name}</h3>
-       <h3>Employee Email : ${emp_email}</h3>
+       <h4>Employee ID : ${emp_id}</h4>
+       <h4>Employee Name : ${emp_name}</h4>
+       <h4>Employee Email : ${emp_email}</h4>
 </body>
 </html>

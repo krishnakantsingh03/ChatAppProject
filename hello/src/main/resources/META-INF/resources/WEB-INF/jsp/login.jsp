@@ -11,9 +11,9 @@
 </head>
 <body>
       <form method="post" action="details">
-        Enter Employee ID    : <input type="text" name="emp_id"><br>
-        Enter Employee Name  : <input type="text" name="emp_name"><br>
-        Enter Employee Email : <input type="email" name="emp_email"><br>
+        Enter Employee ID    : <input type="text" name="emp_id"><br><br>
+        Enter Employee Name  : <input type="text" name="emp_name"><br><br>
+        Enter Employee Email : <input type="email" name="emp_email"><br><br>
         <input type="submit" value="submit">
       </form>
 </body>
