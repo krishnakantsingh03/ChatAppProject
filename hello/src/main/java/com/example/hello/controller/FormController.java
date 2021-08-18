@@ -14,7 +14,7 @@ public class FormController {
     }
 
     @PostMapping("/details")
-    public String details(@RequestParam("emp_id") Integer emp_id,
+    public String details(@RequestParam("emp_id") String emp_id,
                           @RequestParam("emp_name") String emp_name,
                           @RequestParam("emp_email") String emp_email,
                           ModelMap modelMap)

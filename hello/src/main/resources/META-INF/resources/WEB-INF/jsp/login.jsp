@@ -10,11 +10,11 @@
 <title>Login Page</title>
 </head>
 <body>
-      <form action="post" action="details">
+      <form method="post" action="details">
         Enter Employee ID    : <input type="text" name="emp_id"><br>
         Enter Employee Name  : <input type="text" name="emp_name"><br>
-        Enter Employee Email : <input type="text" name="emp_email"><br>
-        <input type="submit" value="submit"><br>
+        Enter Employee Email : <input type="email" name="emp_email"><br>
+        <input type="submit" value="submit">
       </form>
 </body>
 </html>
