@@ -9,7 +9,7 @@ public class CoursesCheck {
 
     @RequestMapping("/")
     public String hello(){
-        System.out.println("Hello Man.....");
+        System.out.println("In Home folder");
         return "home";
     }
     @RequestMapping("/course")
