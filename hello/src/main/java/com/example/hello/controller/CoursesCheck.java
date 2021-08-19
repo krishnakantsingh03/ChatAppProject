@@ -12,10 +12,16 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class CoursesCheck {
 
-    @RequestMapping("/")
+    @RequestMapping("/hello")
     public String hello(){
         return "home";
     }
+
+    @RequestMapping("/demo")
+    public String demo(){
+        return "Demo";
+    }
+
     @RequestMapping("/course")
     public ModelAndView courses(@RequestParam("cname")String cname){
 
