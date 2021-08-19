@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class CoursesCheck {
 
-    @RequestMapping("/hello")
+    @RequestMapping("/")
     public String hello(){
         return "home";
     }

@@ -7,17 +7,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class FormController {
     @Autowired
     EmployeeRepo repo;
-    @RequestMapping("/")
+    @RequestMapping("/login")
     public String loginPage(){
         return "login";
     }
 
-    @RequestMapping("/details")
+    @RequestMapping("/setdetails")
     public String setdetails(Employee employee){
          repo.save(employee);
          return "login";
@@ -28,16 +29,13 @@ public class FormController {
         return "details";
     }
 
-    /*
-    @PostMapping("/details")
-    public String details(@RequestParam("emp_id") String emp_id,
-                          @RequestParam("emp_name") String emp_name,
-                          @RequestParam("emp_email") String emp_email,
-                          ModelMap modelMap)
+
+    @PostMapping("/getdetails")
+    public ModelAndView details(@RequestParam Integer emp_id)
     {
-            modelMap.put("emp_id", emp_id);
-            modelMap.put("emp_name", emp_name);
-            modelMap.put("emp_email", emp_email);
-            return "details";
-    }*/
+        ModelAndView mv = new ModelAndView("retrieve");
+        Employee employee = repo.findById(emp_id).orElse(null);
+        mv.addObject(employee);
+        return mv;
+    }
 }

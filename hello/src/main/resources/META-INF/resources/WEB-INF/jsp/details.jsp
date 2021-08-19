@@ -11,8 +11,9 @@
 </head>
 <body
        <h3>Details Are</h3>
-       <h4>Employee ID : ${emp_id}</h4>
-       <h4>Employee Name : ${emp_name}</h4>
-       <h4>Employee Email : ${emp_email}</h4>
+        <form method="post" action="getdetails">
+               <input type="number" value="emp_id">
+               <input type="submit" value="submit">
+             </form>
 </body>
 </html>
