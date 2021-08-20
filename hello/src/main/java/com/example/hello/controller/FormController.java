@@ -13,11 +13,16 @@ import org.springframework.web.servlet.ModelAndView;
 public class FormController {
     @Autowired
     EmployeeRepo repo;
+
+    @GetMapping("/")
+    public String home(){
+        return "home";
+    }
+
     @RequestMapping("/login")
     public String loginPage(){
         return "login";
     }
-
 
     @RequestMapping("/setdetails")
     public String setdetails(Employee employee){
