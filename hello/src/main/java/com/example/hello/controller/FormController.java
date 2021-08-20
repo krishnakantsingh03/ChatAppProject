@@ -24,8 +24,8 @@ public class FormController {
         return "login";
     }
 
-    @RequestMapping("/setdetails")
-    public String setdetails(Employee employee){
+    @RequestMapping("/details")
+    public String details(Employee employee){
         repo.save(employee);
         return "login";
     }
@@ -36,7 +36,7 @@ public class FormController {
     }
 
 
-    @PostMapping("/details")
+    @PostMapping("/getdetails")
     public ModelAndView details(@RequestParam Integer emp_id)
     {
         ModelAndView mv = new ModelAndView("retrieve");

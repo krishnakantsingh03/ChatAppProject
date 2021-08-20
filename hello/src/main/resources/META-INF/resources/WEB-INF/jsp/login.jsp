@@ -1,20 +1,42 @@
-<!DOCTYPE html>
+<!Doctype html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
-<!-- Static content -->
-<!-- <link rel="stylesheet" href="/resources/css/style.css"> -->
-<!-- <script type="text/javascript" src="/resources/js/app.js"></script> -->
-
-<title>Login Page</title>
+    <meta charset="UTF-8" />
+    <title> Welcome to appname </title>
+    <link href="/css/style.css" type="text/css" rel="stylesheet" />
 </head>
+
 <body>
-      <form method="post" action="details">
-        Enter Employee ID    : <input type="text" name="emp_id"><br><br>
-        Enter Employee Name  : <input type="text" name="emp_name"><br><br>
-        Enter Employee Email : <input type="email" name="emp_email"><br><br>
-        <input type="submit" value="submit">
-      </form>
+    <div class="parent clearfix">
+        <div class="bg-illustration">
+        </div>
+
+        <div class="login">
+            <div class="container">
+                <h1>Login...</h1>
+
+                <div class="login-form">
+                    <form action="">
+                        <input type="email" placeholder="Username/E-mail Address">
+                        <input type="password" placeholder="Password">
+
+                        <div class="remember-form">
+                            <input type="checkbox">
+                            <span>Remember me</span>
+                        </div>
+                        <div class="forget-pass">
+                            <a href="#">Forgot Password ?</a>
+                        </div>
+
+                        <button type="submit">LOG-IN</button>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
