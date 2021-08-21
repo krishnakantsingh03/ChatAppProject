@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!Doctype html>
 <html>
 
@@ -5,6 +6,7 @@
     <meta charset="UTF-8" />
     <title> Welcome to appname </title>
     <link href="/css/style.css" type="text/css" rel="stylesheet" />
+
 </head>
 
 <body>
