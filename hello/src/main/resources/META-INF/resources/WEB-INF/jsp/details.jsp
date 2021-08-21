@@ -12,7 +12,7 @@
 <body
        <h3>Details Are</h3>
         <form method="post" action="getdetails">
-               <input type="number" value="emp_id">
+               <input type="number" value="username">
                <input type="submit" value="submit">
              </form>
 </body>

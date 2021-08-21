@@ -120,7 +120,7 @@ img {
     position: relative;
     height: 100vh;
     width: 1194px;
-    background: url("https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80") no-repeat center center scroll;
+    background: url("https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHRlY2h8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80") no-repeat center center scroll;
     background-size: cover;
     float: left;
     -webkit-animation: bgslide 2.3s forwards;
