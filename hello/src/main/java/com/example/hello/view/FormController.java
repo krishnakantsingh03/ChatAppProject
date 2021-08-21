@@ -14,20 +14,20 @@ public class FormController {
     @Autowired
     EmployeeRepo repo;
 
-    @GetMapping("/")
-    public String home(){
-        return "home";
-    }
-
-    @RequestMapping("/login")
+    @RequestMapping("/")
     public String loginPage(){
         return "login";
     }
 
-    @RequestMapping("/signup")
+    @RequestMapping("/login")
     public String details(Employee employee){
         repo.save(employee);
         return "login";
+    }
+
+    @RequestMapping("/signup")
+    public String signup() {
+        return "signup";
     }
 
     @RequestMapping("/getdetails")
