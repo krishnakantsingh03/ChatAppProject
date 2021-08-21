@@ -6,7 +6,7 @@
 }
 
 body {
-	background: #f6f5f7;
+	background-image: url("https://wallpaperaccess.com/full/1336125.jpg");
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -160,9 +160,7 @@ input {
 }
 
 .overlay {
-	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background-image: url("https://images.unsplash.com/photo-1558470570-c9a5a5ade867?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTV8fHxlbnwwfHx8fA%3D%3D&w=1000&q=80");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
