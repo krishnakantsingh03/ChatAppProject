@@ -17,6 +17,7 @@ body {
 }
 
 h1 {
+	color: #4585e6;
 	font-weight: bold;
 	margin: 0;
 }
@@ -38,7 +39,7 @@ span {
 }
 
 a {
-	color: #333;
+	color:#2b77d8;
 	font-size: 14px;
 	text-decoration: none;
 	margin: 15px 0;
@@ -46,8 +47,8 @@ a {
 
 button {
 	border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
+	border: 1px solid #3f80e2;
+	background-color: #4782b9;;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -160,7 +161,7 @@ input {
 }
 
 .overlay {
-	background-image: url("https://images.unsplash.com/photo-1558470570-c9a5a5ade867?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTV8fHxlbnwwfHx8fA%3D%3D&w=1000&q=80");
+	background-image: url("https://wi.wallpapertip.com/wsimgs/86-867984_water-wallpaper-for-mac.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -225,7 +226,7 @@ input {
 }
 
 footer {
-    background-color: #222;
+    background-color: #124f73;
     color: #fff;
     font-size: 14px;
     bottom: 0;
