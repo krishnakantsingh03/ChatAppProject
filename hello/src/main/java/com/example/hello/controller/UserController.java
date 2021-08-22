@@ -18,10 +18,10 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestBody UserDTO user) {
-        System.out.println("USER "+user.getEmail());
+        System.out.println("USER "+user.getUsername());
 
         Employee emp = new Employee();
-        emp.setEmail(user.getEmail());
+        emp.setUsername(user.getUsername());
         emp.setPassword(user.getPassword());
 
         employeeRepo.save(emp);

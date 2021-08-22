@@ -16,27 +16,29 @@
    		<form action="#">
    			<h1>Create Account</h1>
    			<div class="social-container">
-   				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-   				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+   				<a href="https://facebook.com" class="social" target="_blank"><i class="fab fa-facebook-f"></i></a>
+   				<a href="https://google.com" class="social" target="_blank"><i class="fab fa-google-plus-g"></i></a>
    			</div>
    			<input type="text" placeholder="Name" />
    			<input type="email" placeholder="Email" />
    			<input type="password" placeholder="Password" />
-   			<button>Sign Up</button>
+   			<button onclick=>Sign Up</button>
    		</form>
    	</div>
    	<div class="form-container sign-in-container">
    		<form action="#">
    			<h1>Sign in</h1>
    			<div class="social-container">
-   				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-   				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+   				<a href="https://facebook.com" class="social" target="_blank"><i class="fab fa-facebook-f"></i></a>
+   				<a href="https://google.com" class="social" target="_blank" rel="noopener noreferrer"><i class="fab fa-google-plus-g"></i></a>
 
    			</div>
-   			<input type="email" placeholder="email" />
-   			<input type="password" placeholder="password" />
-   			<a href="#">Forgot your password?</a>
-   			<button>Sign In</button>
+   			<input type="text" placeholder="username" name="username"/>
+   			<input type="password" placeholder="password" name="password"/>
+   			<a href="forgetpassword">Forgot your password?</a>
+   			<form action="https://google.com">
+   			    <button>Sign In</button>
+   			</form>
    		</form>
    	</div>
    	<div class="overlay-container">

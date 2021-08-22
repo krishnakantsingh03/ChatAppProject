@@ -35,6 +35,10 @@ public class FormController {
         return "details";
     }
 
+    @RequestMapping("/forgetpassword")
+    public String forgetpassword(){
+        return "forgetpassword";
+    }
 
     @PostMapping("/getdetails")
     public ModelAndView details(@RequestParam String username)

@@ -6,7 +6,7 @@
 }
 
 body {
-	background-image: url("https://wallpaperaccess.com/full/1336125.jpg");
+	background-image: url("../pics/1336125.jpg");
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -161,7 +161,7 @@ input {
 }
 
 .overlay {
-	background-image: url("https://wi.wallpapertip.com/wsimgs/86-867984_water-wallpaper-for-mac.jpg");
+	background-image: url("../pics/86-867984_water-wallpaper-for-mac.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
