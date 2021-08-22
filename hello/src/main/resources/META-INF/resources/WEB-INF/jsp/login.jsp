@@ -44,12 +44,12 @@
    	<div class="overlay-container">
    		<div class="overlay">
    			<div class="overlay-panel overlay-left">
-   				<h2>Welcome Back!</h2   >
+   				<h2>Welcome To Quick Share</h2   >
    				 <br><br><br><br><br><br><br><br><br><br>
    				<button class="ghost" id="signIn">Sign In</button>
    			</div>
    			<div class="overlay-panel overlay-right">
-   				<h2></h2>
+   				<h2>QUICK SHARE</h2>
    				 <br><br><br><br><br><br><br><br><br><br>
    				<button class="ghost" id="signUp">Sign Up</button>
    			</div>
