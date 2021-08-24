@@ -1,4 +1,4 @@
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<!-- <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%> -->
 <!Doctype html>
 <html>
 
@@ -59,7 +59,7 @@
 
    <footer>
    	<p>
-   		Created By : Azad Singh, Rushabh Rode and Krishna Singh
+   		SAVE WATER, SAVE LIFE
    	</p>
    </footer>
 </body>
