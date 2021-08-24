@@ -14,6 +14,7 @@
         <form method="post" action="getdetails">
                <input type="number" value="username">
                <input type="submit" value="submit">
-             </form>
+        </form>
+
 </body>
 </html>

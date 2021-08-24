@@ -7,7 +7,7 @@
 </head>
 <body>
 	<div class="box">
-		<h2>FOR RECOVERY LINK</h2>
+		<h2>FOR RECOVERY LINK </h2>
 		<form action="">
 			<div class="inputBox">
 				<input type="email" name="" required="">
