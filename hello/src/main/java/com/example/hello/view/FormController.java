@@ -15,12 +15,19 @@ public class FormController {
         return "login";
     }
 
-
+    @RequestMapping("/loading")
+    public String loading(){
+        return "loading";
+    }
     @RequestMapping("/signup")
     public String signup() {
         return "signup";
     }
 
+    @RequestMapping("/demo")
+    public String demo(){
+        return "demo";
+    }
 
     @RequestMapping("/forgetpassword")
     public String forgetpassword(){
