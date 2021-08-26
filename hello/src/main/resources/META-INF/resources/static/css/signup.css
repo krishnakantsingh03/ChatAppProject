@@ -161,6 +161,34 @@ input {
 	transform: translateX(-100%);
 }
 
+/* LOADER */
+#loading {
+    border: 12px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 12px solid #444444;
+    width: 70px;
+    height: 70px;
+	visibility: hidden; 
+	display: none;
+    animation: spin 1s linear infinite;
+    z-index: 999;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.center {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
 .overlay {
 	background-image: url("../pics/86-867984_water-wallpaper-for-mac.jpg");
 	background-repeat: no-repeat;

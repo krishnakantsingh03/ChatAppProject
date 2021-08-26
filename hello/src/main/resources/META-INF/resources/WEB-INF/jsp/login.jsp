@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title> Welcome to Chat App </title>
+    <title> Welcome to Chat App</title>
     <link href="../../static/css/signup.css" type="text/css" rel="stylesheet" />
 	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
@@ -12,9 +12,10 @@
 
 <body>
    <div class="container" id="container">
+    <div id="loading" class="center"></div>
    	<div class="form-container sign-up-container">
    		<form action="#">
-   			<h1>Create Account</h1>
+   			<h1>Create Account </h1>
    			<div class="social-container">
    				<a href="https://facebook.com" class="social" target="_blank"><i class="fab fa-facebook-f"></i></a>
    				<a href="https://accounts.google.com/signin/v2/identifier?hl=en&continue=https%3A%2F%2Fmail.google.com%2Fmail&service=mail&ec=GAlAFw&flowName=GlifWebSignIn&flowEntry=AddSession" class="social" target="_blank"><i class="fab fa-google-plus-g"></i></a>
@@ -22,20 +23,20 @@
    			<input type="text" placeholder="Name" />
    			<input type="email" placeholder="Email" />
    			<input type="password" placeholder="Password" />
-   			<button onclick=>Sign Up</button>
+   			<button onclick="">Sign Up</button>
    		</form>
    	</div>
    	<div class="form-container sign-in-container">
-   		<form action="loading">
+   		<form>
    			<h1>Sign in</h1>
    			<div class="social-container">
    				<a href="https://facebook.com" class="social" target="_blank"><i class="fab fa-facebook-f"></i></a>
    				<a href="https://accounts.google.com/signin/v2/identifier?hl=en&continue=https%3A%2F%2Fmail.google.com%2Fmail&service=mail&ec=GAlAFw&flowName=GlifWebSignIn&flowEntry=AddSession" class="social" target="_blank" rel="noopener noreferrer"><i class="fab fa-google-plus-g"></i></a>
    			</div>
-   			<input type="text" placeholder="username" name="username"/>
-   			<input type="password" placeholder="password" name="password"/>
+   			<input type="text" placeholder="Email" id="email" name="email"/>
+   			<input type="password" placeholder="Password" id="password" name="password"/>
    			<a href="forgetpassword">Forgot your password?</a>
-   			<button>Sign In</button>
+   			<button onclick="login(event)">Sign In</button>
    		</form>
 
    	</div>

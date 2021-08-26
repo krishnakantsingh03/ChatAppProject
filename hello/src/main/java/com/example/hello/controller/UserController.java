@@ -17,14 +17,16 @@ public class UserController {
     EmployeeRepo employeeRepo;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@RequestBody UserDTO user) {
-        System.out.println("USER "+user.getUsername());
+    public String login(@RequestBody UserDTO user) throws InterruptedException {
+        System.out.println("USER " + user.getUsername());
 
-        Employee emp = new Employee();
-        emp.setUsername(user.getUsername());
-        emp.setPassword(user.getPassword());
+        Thread.sleep(5000);
 
-        employeeRepo.save(emp);
+        // Employee emp = new Employee();
+        // emp.setUsername(user.getUsername());
+        // emp.setPassword(user.getPassword());
+
+        // employeeRepo.save(emp);
 
         return "Data stored successfully";
     }
