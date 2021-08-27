@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title> Welcome to Chat App</title>
+    <title>WEBCHAT</title>
     <link href="../../static/css/signup.css" type="text/css" rel="stylesheet" />
 	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
@@ -43,13 +43,13 @@
    	<div class="overlay-container">
    		<div class="overlay">
    			<div class="overlay-panel overlay-left">
-   				<h2>WELCOME TO WECHAT</h2   >
+   				<h2>WELCOME TO WEBCHAT</h2>
    				 <br><br><br><br><br><br><br><br><br><br>
 					<button class="ghost" id="signIn">Sign In</button>
 
    			</div>
    			<div class="overlay-panel overlay-right">
-   				<h2>WECHAT</h2>
+   				<h2>WEBCHAT</h2>
    				 <br><br><br><br><br><br><br><br><br><br>
    				<button class="ghost" id="signUp">Sign Up</button>
    			</div>
