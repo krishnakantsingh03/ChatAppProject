@@ -20,10 +20,11 @@
    				<a href="https://facebook.com" class="social" target="_blank"><i class="fab fa-facebook-f"></i></a>
    				<a href="https://accounts.google.com/signin/v2/identifier?hl=en&continue=https%3A%2F%2Fmail.google.com%2Fmail&service=mail&ec=GAlAFw&flowName=GlifWebSignIn&flowEntry=AddSession" class="social" target="_blank"><i class="fab fa-google-plus-g"></i></a>
    			</div>
-   			<input type="text" placeholder="Name" />
-   			<input type="email" placeholder="Email" />
-   			<input type="password" placeholder="Password" />
-   			<button onclick="">Sign Up</button>
+   			<input type="text" placeholder="Name" id="name" />
+   			<input type="email" placeholder="Email" id="email" />
+   			<input type="password" placeholder="Password" id="password" />
+   			<input type="password" placeholder="Confirm Password" id="confirm-password" />
+   			<button onclick="signup(event)">Sign Up</button>
    		</form>
    	</div>
    	<div class="form-container sign-in-container">
@@ -63,5 +64,5 @@
    	</p>
    </footer>
 </body>
-<script src="../../static/js/signup.js"></script>
+<script src="../../static/js/user.js"></script>
 </html>
