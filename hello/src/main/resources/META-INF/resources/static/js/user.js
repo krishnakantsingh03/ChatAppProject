@@ -18,11 +18,12 @@ function login(event) {
 
 
 	console.log(email, password)
+	console.log('I am here');
 
 	document.querySelector("#loading").style.visibility = "visible";
 	document.querySelector("#loading").style.display = "block";
 
-	fetch("http://localhost:8082/login", {
+	fetch("http://localhost:8085/login", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json"
@@ -53,7 +54,11 @@ function signup(event){
 
 	console.log(username, user_email, user_password);
 	if(user_password != confirm_password){
-		console.log("Password Mismatch");
 		alert('Password Mis-match');
+	}else{
+		alert('Successfully Signed Up')
 	}
+
+
+
 }

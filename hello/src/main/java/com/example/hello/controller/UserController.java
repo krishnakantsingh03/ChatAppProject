@@ -20,13 +20,13 @@ public class UserController {
     public String login(@RequestBody UserDTO user) throws InterruptedException {
         System.out.println("USER " + user.getUsername());
 
-        Thread.sleep(1000);
+        Thread.sleep(5000);
 
-         User emp = new User();
-         emp.setUsername(user.getUsername());
-         emp.setPassword(user.getPassword());
+        // User emp = new User();
+        // emp.setUsername(user.getUsername());
+        // emp.setPassword(user.getPassword());
 
-         userRepo.save(emp);
+        // userRepo.save(emp);
 
         return "Data stored successfully";
     }

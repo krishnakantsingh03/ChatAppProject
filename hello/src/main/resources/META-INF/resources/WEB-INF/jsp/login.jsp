@@ -20,10 +20,10 @@
    				<a href="https://facebook.com" class="social" target="_blank"><i class="fab fa-facebook-f"></i></a>
    				<a href="https://accounts.google.com/signin/v2/identifier?hl=en&continue=https%3A%2F%2Fmail.google.com%2Fmail&service=mail&ec=GAlAFw&flowName=GlifWebSignIn&flowEntry=AddSession" class="social" target="_blank"><i class="fab fa-google-plus-g"></i></a>
    			</div>
-   			<input type="text" placeholder="Name" id="name" />
-   			<input type="email" placeholder="Email" id="email" />
-   			<input type="password" placeholder="Password" id="password" />
-   			<input type="password" placeholder="Confirm Password" id="confirm-password" />
+   			<input type="text" placeholder="Name" id="name" required/>
+   			<input type="email" placeholder="Email" id="email" required/>
+   			<input type="password" placeholder="Password" id="password" required/>
+   			<input type="password" placeholder="Confirm Password" id="confirm-password" required/>
    			<button onclick="signup(event)">Sign Up</button>
    		</form>
    	</div>
@@ -34,9 +34,9 @@
    				<a href="https://facebook.com" class="social" target="_blank"><i class="fab fa-facebook-f"></i></a>
    				<a href="https://accounts.google.com/signin/v2/identifier?hl=en&continue=https%3A%2F%2Fmail.google.com%2Fmail&service=mail&ec=GAlAFw&flowName=GlifWebSignIn&flowEntry=AddSession" class="social" target="_blank" rel="noopener noreferrer"><i class="fab fa-google-plus-g"></i></a>
    			</div>
-   			<input type="text" placeholder="Email" id="email" name="email"/>
-   			<input type="password" placeholder="Password" id="password" name="password"/>
-   			<a href="forgetpassword">Forgot your password?</a>
+   			<input type="text" placeholder="Email" id="email" name="email" required/>
+   			<input type="password" placeholder="Password" id="password" name="password" required/>
+   			<a href="forget">Forgot your password?</a>
    			<button onclick="login(event)">Sign In</button>
    		</form>
 

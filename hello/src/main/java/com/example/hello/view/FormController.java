@@ -15,4 +15,8 @@ public class FormController {
         return "login";
     }
 
+    @RequestMapping("/forget")
+    public String forget(){
+        return "forget";
+    }
 }
