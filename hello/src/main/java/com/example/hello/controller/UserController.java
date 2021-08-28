@@ -30,4 +30,16 @@ public class UserController {
 
         return "Data stored successfully";
     }
+
+    @RequestMapping(value = "/signup", method = RequestMethod.POST)
+    public String registerUser(@RequestBody UserDTO userParam) throws InterruptedException {
+        User user = new User();
+
+        user.setUsername(userParam.getUsername());
+        user.setEmail(userParam.getEmail());
+        user.setPassword(userParam.getPassword());
+
+        userRepo.save(user);
+        return "Data Stored In Signup";
+    }
 }

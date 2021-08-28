@@ -1,15 +1,14 @@
 package com.example.hello.view;
 
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
 public class User {
 
-    private String username;
     @Id
     private String email;
+    private String username;
     private String password;
 
     public String getUsername() {

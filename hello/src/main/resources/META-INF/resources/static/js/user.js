@@ -13,17 +13,17 @@ signInButton.addEventListener('click', () => {
 function login(event) {
 	event.preventDefault();
 
-	const email = document.getElementById("email").value;
-	const password = document.getElementById("password").value;
+	const email = document.getElementById("login_email").value;
+	const password = document.getElementById("login_password").value;
 
 
-	console.log(email, password)
+	console.log(email, password);
 	console.log('I am here');
 
 	document.querySelector("#loading").style.visibility = "visible";
 	document.querySelector("#loading").style.display = "block";
 
-	fetch("http://localhost:8085/login", {
+	fetch("http://localhost:8081/login", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json"
@@ -57,8 +57,18 @@ function signup(event){
 		alert('Password Mis-match');
 	}else{
 		alert('Successfully Signed Up')
+		fetch("http://localhost:8081/signup" , {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				username: username,
+				email: user_email,
+				password: user_password
+			})
+		})
 	}
 
-
-
 }
+ 
