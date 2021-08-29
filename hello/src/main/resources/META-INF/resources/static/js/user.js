@@ -18,7 +18,6 @@ function login(event) {
 
 
 	console.log(email, password);
-	console.log('I am here');
 
 	document.querySelector("#loading").style.visibility = "visible";
 	document.querySelector("#loading").style.display = "block";
@@ -28,7 +27,7 @@ function login(event) {
 		headers: {
 			"Content-Type": "application/json"
 		},
-		body: JSON.stringify({email, password})
+		body: JSON.stringify({email, password, username: ""})
 	}).then(data => data).then(res => {
 		console.log("Response:: ", res);
 		document.querySelector("#loading").style.visibility = "hidden";

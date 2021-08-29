@@ -6,15 +6,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.jdbc.core.JdbcTemplate;
-
-import java.util.concurrent.SubmissionPublisher;
 
 @ComponentScan
 @SpringBootApplication
 public class HelloApplication extends SpringBootServletInitializer {
 	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application){
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(HelloApplication.class);
 	}
 
