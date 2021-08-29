@@ -44,7 +44,7 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.OK);
         }
 
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User Already Registered!!!");
 
     }
 }

@@ -55,7 +55,6 @@ function signup(event){
 	if(user_password != confirm_password){
 		alert('Password Mis-match');
 	}else{
-		alert('Successfully Signed Up')
 		fetch("http://localhost:8081/signup" , {
 			method: "POST",
 			headers: {
@@ -66,6 +65,17 @@ function signup(event){
 				email: user_email,
 				password: user_password
 			})
+		}).then(data => data).then(res => {
+			console.log(res);
+			if (res.status == 200) {
+				alert('User Registered Successfully!!!');
+			} else {
+				alert('User Registration Failed' + res.statusText);
+			}
+	
+		})
+		.catch(err => {
+			alert('Account Exists');
 		})
 	}
 
