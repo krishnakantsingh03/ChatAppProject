@@ -1,9 +1,9 @@
 package com.example.hello.controller;
 
 import com.example.hello.dto.UserDTO;
+import com.example.hello.model.User;
 import com.example.hello.repository.UserRepo;
 
-import com.example.hello.view.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
