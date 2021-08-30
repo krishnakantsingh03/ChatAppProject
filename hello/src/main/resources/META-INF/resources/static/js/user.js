@@ -16,29 +16,32 @@ function login(event) {
 	const email = document.getElementById("login_email").value;
 	const password = document.getElementById("login_password").value;
 
-
 	console.log(email, password);
 
-	document.querySelector("#loading").style.visibility = "visible";
-	document.querySelector("#loading").style.display = "block";
-
-	fetch("http://localhost:8081/login", {
+	if(email == "" || password == null){
+		console.log('Something is missing');
+		swal("OOPS!!!!!!", "Fill Up all the Columns", "warning")
+	}
+	fetch("http://localhost:8082/login", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json"
 		},
-		body: JSON.stringify({email, password, username: ""})
+		body: JSON.stringify({
+			email: email, 
+			password: password, 
+			username: ""})
 	}).then(data => data).then(res => {
-		console.log("Response:: ", res);
-		document.querySelector("#loading").style.visibility = "hidden";
-		document.querySelector("#loading").style.display = "none";
+		console.log(res);
+		if (res.status == 200) {
+			swal("Good job!", "LoggedIn Successfully", "success");
+		} else {
+			swal("OOPS!!!!!!", "Failed to Login", "error");
+		}
 
 	})
 	.catch(err => {
-
-		document.querySelector("#loading").style.visibility = "hidden";
-		document.querySelector("#loading").style.display = "none";
-	
+		swal("OOPS!!!!!!", "User Registration Failed", "error");
 	})
 }
 
@@ -53,9 +56,9 @@ function signup(event){
 
 	console.log(username, user_email, user_password);
 	if(user_password != confirm_password){
-		alert('Password Mis-match');
+		swal('Password Mis-match');
 	}else{
-		fetch("http://localhost:8081/signup" , {
+		fetch("http://localhost:8082/signup" , {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -68,16 +71,17 @@ function signup(event){
 		}).then(data => data).then(res => {
 			console.log(res);
 			if (res.status == 200) {
-				alert('User Registered Successfully!!!');
+				swal("Good job!", "Signed Up Successfully", "success");
 			} else {
-				alert('User Registration Failed' + res.statusText);
+				swal("OOPS!!!!!!", "Faild", "error")
 			}
 	
 		})
 		.catch(err => {
-			alert('Account Exists');
+			swal("OOPS!!!!!!", "Account Exists", "warning")
 		})
 	}
 
 }
+ 
  

@@ -1,6 +1,5 @@
 package com.example.hello.service;
 
-import java.lang.StackWalker.Option;
 import java.util.Optional;
 
 import com.example.hello.dto.UserDTO;
@@ -19,7 +18,6 @@ public class UserService {
 
         try {
             User userDB = userRepo.getById(user.getEmail());
-            System.out.println("Database value " + user.getPassword() + " " + userDB.getPassword());
 
             return userDB.getPassword().equals(user.getPassword());
 
@@ -32,12 +30,10 @@ public class UserService {
     public boolean isAccountExist(UserDTO user) {
         Optional<User> userDB = userRepo.findById(user.getEmail());
 
-        System.out.println(">>>>>>>>>>>>>>>>>" + userDB.isPresent());
         if (userDB.isPresent()) {
-            System.out.println("I am in if");
             return true;
         }
-        System.out.println("I am in else");
+
         return false;
     }
 }

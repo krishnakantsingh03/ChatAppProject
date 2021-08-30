@@ -7,6 +7,7 @@
     <title>WEBCHAT</title>
     <link href="../../static/css/signup.css" type="text/css" rel="stylesheet" />
 	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 
