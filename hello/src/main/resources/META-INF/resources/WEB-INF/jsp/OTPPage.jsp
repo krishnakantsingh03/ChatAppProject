@@ -7,14 +7,14 @@
 </head>
 <body>
 	<div class="box">
-		<h2>FOR RECOVERY LINK </h2>
+		<h2>ENTER OTP </h2>
 		<form action="">
 			<div class="inputBox">
-				<input type="email" id= "email"name="" required="">
-				<label for="">Email</label>
+				<input type="text" name="OTP" required="">
+				<label for="">OTP</label>
 			</div>
 		
-			<input type="submit" name="" onclick="OTP(event)" value="Submit">
+			<input type="submit" name="" value="Submit">
 		</form>
 	</div>
 </body>

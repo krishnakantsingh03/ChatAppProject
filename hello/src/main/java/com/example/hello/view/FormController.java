@@ -11,12 +11,17 @@ public class FormController {
     UserRepo repo;
 
     @RequestMapping("/")
-    public String loginPage(){
+    public String loginPage() {
         return "login";
     }
 
     @RequestMapping("/forget")
-    public String forget(){
+    public String forget() {
         return "forget";
+    }
+
+    @RequestMapping("/OTPPage")
+    public String OTP() {
+        return "OTPPage";
     }
 }

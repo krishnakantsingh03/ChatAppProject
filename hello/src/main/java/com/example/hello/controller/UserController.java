@@ -47,4 +47,10 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User Already Registered!!!");
 
     }
+
+    // @RequestMapping(value = "/sendotp", method = RequestMethod.POST)
+    // public Boolean sendotp(@RequestBody ) {
+
+    // return false;
+    // }
 }

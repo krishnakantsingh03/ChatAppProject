@@ -18,11 +18,13 @@ function login(event) {
 
 	console.log(email, password);
 
-	if(email == "" || password == null){
+	if(email == "" || password == ""){
 		console.log('Something is missing');
-		swal("OOPS!!!!!!", "Fill Up all the Columns", "warning")
+		swal("OOPS!!!!!!", "Fill Up all the Columns", "warning");
+		return;
 	}
-	fetch("http://localhost:8082/login", {
+
+	fetch("http://localhost:8081/login", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json"
@@ -52,13 +54,18 @@ function signup(event){
 	const user_email = document.getElementById("email").value;
 	const user_password = document.getElementById("password").value;
 	const confirm_password = document.getElementById("confirm-password").value;
-
+	
+	if(username == "" || user_email == "" || user_password=="" || confirm_password== ""){
+		console.log('Something is missing');
+		swal("OOPS!!!!!!", "Fill Up all the Columns", "warning");
+		return;
+	}
 
 	console.log(username, user_email, user_password);
 	if(user_password != confirm_password){
 		swal('Password Mis-match');
 	}else{
-		fetch("http://localhost:8082/signup" , {
+		fetch("http://localhost:8081/signup" , {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -84,4 +91,19 @@ function signup(event){
 
 }
  
- 
+function OTP(event){
+	event.preventDefault();
+
+	const otp_mail = document.getElementById("email").value;
+	console.log(otp_mail);
+
+	fetch("https://localhost:8081/sendotp" , {
+		method: "POST",
+		headers: {
+			"Conten-type": "application/json"
+		},
+		body: JSON.stringify({
+			email: otp_mail
+		})
+	})
+}
