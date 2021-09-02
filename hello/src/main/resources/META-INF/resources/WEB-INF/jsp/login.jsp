@@ -8,7 +8,7 @@
     <link href="../../static/css/signup.css" type="text/css" rel="stylesheet" />
 	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+	<link rel="icon" href="../../static/pics/logo.jpg" type="image/x-icon">
 </head>
 
 <body>
@@ -44,12 +44,18 @@
    		<div class="overlay">
    			<div class="overlay-panel overlay-left">
    				<h2>WELCOME TO WEBCHAT</h2>
+				<div class="wrapper">
+					<img src="../../static/pics/logo.jpg" alt="Trulli" width="100" height="100"> 
+				</div>
    				 <br><br><br><br><br><br><br><br><br><br>
 					<button class="ghost" id="signIn">Sign In</button>
 
    			</div>
    			<div class="overlay-panel overlay-right">
    				<h2>WEBCHAT</h2>
+				<div class="wrapper1">	 
+					<img src="../../static/pics/logo.jpg" alt="Trulli" width="100" height="100"> 
+				</div>
    				 <br><br><br><br><br><br><br><br><br><br>
    				<button class="ghost" id="signUp">Sign Up</button>
    			</div>

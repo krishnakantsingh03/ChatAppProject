@@ -279,3 +279,30 @@ footer a {
     color: #3c97bf;
     text-decoration: none;
 }
+
+.wrapper {
+	position: absolute;
+    backface-visibility: hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+    width: 95px;
+    height: 97px;
+}
+
+.wrapper1 {
+	position: absolute;
+    backface-visibility: hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;    
+    width: 112px;
+    height: 105px;
+
+}

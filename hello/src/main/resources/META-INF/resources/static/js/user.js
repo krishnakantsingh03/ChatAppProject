@@ -19,7 +19,6 @@ function login(event) {
 	console.log(email, password);
 
 	if(email == "" || password == ""){
-		console.log('Something is missing');
 		swal("OOPS!!!!!!", "Fill Up all the Columns", "warning");
 		return;
 	}
@@ -56,7 +55,6 @@ function signup(event){
 	const confirm_password = document.getElementById("confirm-password").value;
 	
 	if(username == "" || user_email == "" || user_password=="" || confirm_password== ""){
-		console.log('Something is missing');
 		swal("OOPS!!!!!!", "Fill Up all the Columns", "warning");
 		return;
 	}
