@@ -43,7 +43,7 @@ function login(event) {
 
 	})
 	.catch(err => {
-		swal("OOPS!!!!!!", "User Registration Failed", "error");
+		swal("OOPS!!!!!!", "Please specify correct email", "error");
 	})
 }
 
@@ -63,7 +63,7 @@ function signup(event){
 
 	console.log(username, user_email, user_password);
 	if(user_password != confirm_password){
-		swal('Password Mis-match');
+		swal("OOPS!!!!!!", "Passsword Mis-match", "error");
 	}else{
 		fetch("http://localhost:8081/signup" , {
 			method: "POST",

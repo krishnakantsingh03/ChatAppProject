@@ -1,6 +1,6 @@
 package com.example.hello;
 
-import com.example.hello.service.MailSenderService;
+// import com.example.hello.service.MailSenderService;
 
 // import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;

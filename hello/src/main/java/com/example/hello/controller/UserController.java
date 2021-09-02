@@ -6,12 +6,15 @@ import com.example.hello.repository.UserRepo;
 import com.example.hello.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import lombok.Value;
 
 @RestController
 public class UserController {
@@ -21,6 +24,14 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    Environment env;
+
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public void test() {
+        System.out.println(env.getProperty("spring.chat.username"));
+    }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ResponseEntity login(@RequestBody UserDTO user) throws InterruptedException {
