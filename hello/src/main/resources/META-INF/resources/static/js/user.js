@@ -24,7 +24,7 @@ function login(event) {
 		return;
 	}
 
-	fetch("http://localhost:8081/login", {
+	fetch("http://localhost:8085/login", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json"
@@ -36,14 +36,14 @@ function login(event) {
 	}).then(data => data).then(res => {
 		console.log(res);
 		if (res.status == 200) {
-			swal("Good job!", "LoggedIn Successfully", "success");
+			swal("Great!", "LoggedIn Successfully", "success");
 		} else {
-			swal("OOPS!!!!!!", "Failed to Login", "error");
+			swal("OOPS!!!!!!", "Username or Password Incorrect", "error");
 		}
 
 	})
 	.catch(err => {
-		swal("OOPS!!!!!!", "Please specify correct email", "error");
+		swal("OOPS!!!!!!", "Account Does't Exist", "error");
 	})
 }
 
@@ -65,7 +65,7 @@ function signup(event){
 	if(user_password != confirm_password){
 		swal("OOPS!!!!!!", "Passsword Mis-match", "error");
 	}else{
-		fetch("http://localhost:8081/signup" , {
+		fetch("http://localhost:8085/signup" , {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -78,7 +78,7 @@ function signup(event){
 		}).then(data => data).then(res => {
 			console.log(res);
 			if (res.status == 200) {
-				swal("Good job!", "Signed Up Successfully", "success");
+				swal("Great!", "Signed Up Successfully", "success");
 			} else {
 				swal("OOPS!!!!!!", "Faild", "error")
 			}

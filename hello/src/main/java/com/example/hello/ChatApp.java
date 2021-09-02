@@ -13,14 +13,14 @@ import org.springframework.context.annotation.ComponentScan;
 
 @ComponentScan
 @SpringBootApplication
-public class HelloApplication extends SpringBootServletInitializer {
+public class ChatApp extends SpringBootServletInitializer {
 
 	// @Autowired
 	// private MailSenderService mailSenderService;
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(HelloApplication.class);
+		return application.sources(ChatApp.class);
 	}
 
 	// @EventListener(ApplicationReadyEvent.class)
@@ -30,7 +30,7 @@ public class HelloApplication extends SpringBootServletInitializer {
 	// }
 
 	public static void main(String[] args) {
-		SpringApplication.run(HelloApplication.class, args);
+		SpringApplication.run(ChatApp.class, args);
 
 	}
 
