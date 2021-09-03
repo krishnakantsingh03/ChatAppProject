@@ -39,7 +39,10 @@ public class UserService {
 
     public boolean isValidEmail(UserDTO user) {
         try {
+            // System.out.println("I am");
             User userDB = userRepo.getById(user.getEmail());
+            System.out.println("+++++++++++" + userDB);
+
             return true;
         } catch (Exception ex) {
             System.out.println("[ERROR]::[SERVICE]::isValidUser:: " + ex);

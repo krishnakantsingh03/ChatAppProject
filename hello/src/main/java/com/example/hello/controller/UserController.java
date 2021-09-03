@@ -77,10 +77,10 @@ public class UserController {
             Random rand = new Random();
             int otp_number = rand.nextInt(9999);
 
+            user.setOtp(otp_number);
             System.out.println(otp_number);
-            // @EventListener(ApplicationReadyEvent.class)
-
-            String emailBody = String.format("%s Hello,\n This is you OTP %s", userParam.getEmail(), otp_number);
+            String emailBody = String.format("Hello %s,\n This is you OTP to Reset Your Password : %s\n",
+                    userParam.getEmail(), otp_number);
 
             mailSenderService.sendmail(userParam.getEmail(), emailBody, "OTP To Reset Password");
             return new ResponseEntity<>(HttpStatus.OK);
