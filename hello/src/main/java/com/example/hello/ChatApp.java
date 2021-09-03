@@ -15,9 +15,6 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 public class ChatApp extends SpringBootServletInitializer {
 
-	// @Autowired
-	// private MailSenderService mailSenderService;
-
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(ChatApp.class);

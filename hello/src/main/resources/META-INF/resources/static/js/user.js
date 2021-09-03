@@ -95,13 +95,27 @@ function OTP(event){
 	const otp_mail = document.getElementById("email").value;
 	console.log(otp_mail);
 
-	fetch("https://localhost:8081/sendotp" , {
+	if(otp_mail == ""){
+		swal("OOPS!!!!!!", "Fill Up all the Columns", "warning");
+		return;
+	}
+	fetch("http://localhost:8085/sendotp", {
 		method: "POST",
 		headers: {
-			"Conten-type": "application/json"
+			"Content-Type": "application/json"
 		},
 		body: JSON.stringify({
-			email: otp_mail
+			email: otp_mail 
 		})
+	}).then(data => data).then(res => {
+		console.log(res);
+		if (res.status == 200) {
+			swal("Great!", "OTP sent on your email", "success");
+		} else {
+			swal("OOPS!!!!!!", "Email is not Registered with Us", "error");
+		}
+
+	}).catch(err => {
+		swal("OOPS!!!!!!", "Account Does not Exist", "error");
 	})
 }

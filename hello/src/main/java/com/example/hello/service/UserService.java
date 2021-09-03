@@ -36,4 +36,14 @@ public class UserService {
 
         return false;
     }
+
+    public boolean isValidEmail(UserDTO user) {
+        try {
+            User userDB = userRepo.getById(user.getEmail());
+            return true;
+        } catch (Exception ex) {
+            System.out.println("[ERROR]::[SERVICE]::isValidUser:: " + ex);
+            return false;
+        }
+    }
 }

@@ -1,11 +1,13 @@
 package com.example.hello.controller;
 
+import java.util.Random;
+
 import com.example.hello.dto.UserDTO;
 import com.example.hello.model.User;
 import com.example.hello.repository.UserRepo;
 import com.example.hello.service.UserService;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import com.example.hello.service.MailSenderService;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 
 import lombok.Value;
 
@@ -27,6 +32,9 @@ public class UserController {
 
     @Autowired
     Environment env;
+
+    @Autowired
+    private MailSenderService mailSenderService;
 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public void test() {
@@ -55,13 +63,30 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.OK);
         }
 
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User Already Registered!!!");
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
     }
 
-    // @RequestMapping(value = "/sendotp", method = RequestMethod.POST)
-    // public Boolean sendotp(@RequestBody ) {
+    @RequestMapping(value = "/sendotp", method = RequestMethod.POST)
+    public ResponseEntity sendotp(@RequestBody UserDTO userParam) throws InterruptedException {
+        System.out.println(">>>>>>>>>" + userParam.getEmail());
+        User user = new User();
 
-    // return false;
-    // }
+        if (userService.isValidEmail(userParam)) {
+
+            Random rand = new Random();
+            int otp_number = rand.nextInt(9999);
+
+            System.out.println(otp_number);
+            // @EventListener(ApplicationReadyEvent.class)
+
+            String emailBody = String.format("%s Hello,\n This is you OTP %s", userParam.getEmail(), otp_number);
+
+            mailSenderService.sendmail(userParam.getEmail(), emailBody, "OTP To Reset Password");
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    }
+
 }

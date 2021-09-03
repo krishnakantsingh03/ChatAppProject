@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title>WEBCHAT</title>
 	<link rel="stylesheet" href="../../static/css/forget.css">
+	<link rel="icon" href="../../static/pics/logo.jpg" type="image/x-icon">
 </head>
 <body>
 	<div class="box">
