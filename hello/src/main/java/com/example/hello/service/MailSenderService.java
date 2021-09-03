@@ -19,6 +19,5 @@ public class MailSenderService {
         simpleMailMessage.setText(body);
 
         javaMailSender.send(simpleMailMessage);
-        // System.out.println("Mail Sent Successfully");
     }
 }

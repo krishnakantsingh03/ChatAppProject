@@ -7,7 +7,6 @@ import com.example.hello.model.User;
 import com.example.hello.repository.UserRepo;
 import com.example.hello.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,10 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.hello.service.MailSenderService;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.event.EventListener;
-
-import lombok.Value;
 
 @RestController
 public class UserController {
@@ -70,14 +65,13 @@ public class UserController {
     @RequestMapping(value = "/sendotp", method = RequestMethod.POST)
     public ResponseEntity sendotp(@RequestBody UserDTO userParam) throws InterruptedException {
         System.out.println(">>>>>>>>>" + userParam.getEmail());
-        User user = new User();
+        // User user = new User();
 
         if (userService.isValidEmail(userParam)) {
 
             Random rand = new Random();
             int otp_number = rand.nextInt(9999);
 
-            user.setOtp(otp_number);
             System.out.println(otp_number);
             String emailBody = String.format("Hello %s,\n This is you OTP to Reset Your Password : %s\n",
                     userParam.getEmail(), otp_number);
