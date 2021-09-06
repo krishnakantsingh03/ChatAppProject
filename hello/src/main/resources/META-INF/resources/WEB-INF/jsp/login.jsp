@@ -8,6 +8,7 @@
     <link href="../../static/css/signup.css" type="text/css" rel="stylesheet" />
 	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="sweetalert2.all.min.js"></script>
 	<link rel="icon" href="../../static/pics/logo.jpg" type="image/x-icon">
 </head>
 

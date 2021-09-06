@@ -111,6 +111,7 @@ function OTP(event){
 		console.log(res);
 		if (res.status == 200) {
 			swal("Great!", "OTP sent on your email", "success");
+			// validate_otp();
 		} else {
 			swal("OOPS!!!!!!", "Email is not Registered with Us", "error");
 		}
@@ -119,3 +120,31 @@ function OTP(event){
 		swal("OOPS!!!!!!", "Account Does not Exist", "error");
 	})
 }
+
+// function validate_otp(){
+// 	swal({
+// 		title: 'Enter the Received OTP',
+// 		input: 'text',
+// 		showCancelButton: true,
+// 		confirmButtonText: 'Submit',
+// 		showLoaderOnConfirm: true,
+// 		preConfirm: function (text) {
+// 		  return new Promise(function (resolve, reject) {
+// 			setTimeout(function() {
+// 			    fetch("http://localhost:8085/checkotp", {
+					
+// 				})
+
+// 			  }
+// 			}, 2000)
+// 		  })
+// 		},
+// 		allowOutsideClick: false
+// 	  }).then(function (email) {
+// 		swal({
+// 		  type: 'success',
+// 		  title: 'Ajax request finished!',
+// 		  html: 'Submitted email: ' + email
+// 		})
+// 	  })
+// }

@@ -65,7 +65,6 @@ public class UserController {
     @RequestMapping(value = "/sendotp", method = RequestMethod.POST)
     public ResponseEntity sendotp(@RequestBody UserDTO userParam) throws InterruptedException {
         System.out.println(">>>>>>>>>" + userParam.getEmail());
-        // User user = new User();
 
         if (userService.isValidEmail(userParam)) {
 
