@@ -1,9 +1,11 @@
 package com.example.hello.service;
 
 import java.util.Optional;
+import java.util.Random;
 
 import com.example.hello.dto.UserDTO;
 import com.example.hello.model.User;
+import com.example.hello.repository.UserDAO;
 import com.example.hello.repository.UserRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,27 @@ import org.springframework.stereotype.Service;
 public class UserService {
     @Autowired
     UserRepo userRepo;
+
+    @Autowired
+    UserDAO userDAO;
+
+    @Autowired
+    private MailSenderService mailSenderService;
+
+    public void optGenerator(User user) {
+        Random rand = new Random();
+        int otp_number = rand.nextInt(9999);
+
+        // Store in database
+        userDAO.update(user, otp_number);
+
+        // send email with OTP
+        System.out.println(otp_number);
+        String emailBody = String.format("Hello %s,\n This is you OTP to Reset Your Password : %s\n", user.getEmail(),
+                otp_number);
+
+        mailSenderService.sendmail(user.getEmail(), emailBody, "OTP To Reset Password");
+    }
 
     public boolean isValidUser(UserDTO user) {
 
@@ -37,7 +60,7 @@ public class UserService {
         return false;
     }
 
-    public boolean isValidEmail(UserDTO user) {
+    public boolean isValidEmail(User user) {
         try {
             // System.out.println("I am");
             User userDB = userRepo.getById(user.getEmail());
@@ -48,5 +71,9 @@ public class UserService {
             System.out.println("[ERROR]::[SERVICE]::isValidUser:: " + ex);
             return false;
         }
+    }
+
+    public void saveUser(User user) throws Exception {
+        userDAO.save(user);
     }
 }

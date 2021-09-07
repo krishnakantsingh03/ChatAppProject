@@ -60,6 +60,7 @@ function signup(event){
 	}
 
 	console.log(username, user_email, user_password);
+	
 	if(user_password != confirm_password){
 		swal("OOPS!!!!!!", "Passsword Mis-match", "error");
 	}else{
@@ -89,9 +90,8 @@ function signup(event){
 
 }
  
-function OTP(event){
+function forget(event){
 	event.preventDefault();
-
 	const otp_mail = document.getElementById("email").value;
 	console.log(otp_mail);
 
@@ -110,8 +110,14 @@ function OTP(event){
 	}).then(data => data).then(res => {
 		console.log(res);
 		if (res.status == 200) {
-			swal("Great!", "OTP sent on your email", "success");
-			// validate_otp();
+			swal({
+				title: 'OPT sent Successfully',
+				buttons: false
+			  });
+
+			setTimeout(()=>{
+				window.open("OTP", "_self");
+			},1500)
 		} else {
 			swal("OOPS!!!!!!", "Email is not Registered with Us", "error");
 		}
@@ -121,30 +127,43 @@ function OTP(event){
 	})
 }
 
-// function validate_otp(){
-// 	swal({
-// 		title: 'Enter the Received OTP',
-// 		input: 'text',
-// 		showCancelButton: true,
-// 		confirmButtonText: 'Submit',
-// 		showLoaderOnConfirm: true,
-// 		preConfirm: function (text) {
-// 		  return new Promise(function (resolve, reject) {
-// 			setTimeout(function() {
-// 			    fetch("http://localhost:8085/checkotp", {
-					
-// 				})
 
-// 			  }
-// 			}, 2000)
-// 		  })
-// 		},
-// 		allowOutsideClick: false
-// 	  }).then(function (email) {
-// 		swal({
-// 		  type: 'success',
-// 		  title: 'Ajax request finished!',
-// 		  html: 'Submitted email: ' + email
-// 		})
-// 	  })
-// }
+function Otp(event){
+	event.preventDefault();
+	
+	console.log('I am in OTP');
+
+	const user_otp = document.getElementById('otp').value;
+	console.log(user_otp);
+
+	if(user_otp == ""){
+		swal("OOPS!!!!!!", "Please Enter the OTP", "warning");
+		return;
+	}
+	fetch("http://localhost:8085/checkotp", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify({
+			otp: user_otp
+		})
+	}).then(data => data).then(res => {
+			console.log(res);
+			if (res.status == 200) {
+					window.open("OTPPage", "_self");
+			} else {
+				swal("OOPS!!!!!!", "Incorrect OTP", "error");
+			}
+	
+	}).catch(err => {
+			swal("OOPS!!!!!!", "Incorrect OTP", "error");
+		})
+	 
+}
+
+function setpassword(event){
+	event.preventDefault();
+
+	console.log("I am in setpassword");
+}

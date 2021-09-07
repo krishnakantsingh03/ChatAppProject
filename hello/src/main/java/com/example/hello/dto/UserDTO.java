@@ -4,6 +4,15 @@ public class UserDTO {
     private String username;
     private String email;
     private String password;
+    private int otp;
+
+    public int getOtp() {
+        return otp;
+    }
+
+    public void setOtp(int otp) {
+        this.otp = otp;
+    }
 
     public String getUsername() {
         return username;

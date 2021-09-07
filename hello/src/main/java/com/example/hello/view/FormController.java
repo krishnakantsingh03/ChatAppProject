@@ -20,8 +20,13 @@ public class FormController {
         return "forget";
     }
 
-    @RequestMapping("/OTPPage")
+    @RequestMapping("/OTP")
     public String OTP() {
-        return "OTPPage";
+        return "OTP";
+    }
+
+    @RequestMapping("/setpassword")
+    public String SetPassword() {
+        return "setpassword";
     }
 }

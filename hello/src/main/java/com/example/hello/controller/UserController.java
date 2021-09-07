@@ -14,22 +14,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.hello.service.MailSenderService;
 
 @RestController
 public class UserController {
-
-    @Autowired
-    UserRepo userRepo;
 
     @Autowired
     UserService userService;
 
     @Autowired
     Environment env;
-
-    @Autowired
-    private MailSenderService mailSenderService;
 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public void test() {
@@ -46,7 +39,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public ResponseEntity registerUser(@RequestBody UserDTO userParam) throws InterruptedException {
+    public ResponseEntity registerUser(@RequestBody UserDTO userParam) throws Exception {
         User user = new User();
 
         user.setUsername(userParam.getUsername());
@@ -54,7 +47,7 @@ public class UserController {
         user.setPassword(userParam.getPassword());
 
         if (!userService.isAccountExist(userParam)) {
-            userRepo.save(user);
+            userService.saveUser(user);
             return new ResponseEntity<>(HttpStatus.OK);
         }
 
@@ -65,21 +58,22 @@ public class UserController {
     @RequestMapping(value = "/sendotp", method = RequestMethod.POST)
     public ResponseEntity sendotp(@RequestBody UserDTO userParam) throws InterruptedException {
         System.out.println(">>>>>>>>>" + userParam.getEmail());
+        User user = new User();
 
-        if (userService.isValidEmail(userParam)) {
+        user.setEmail(userParam.getEmail());
 
-            Random rand = new Random();
-            int otp_number = rand.nextInt(9999);
-
-            System.out.println(otp_number);
-            String emailBody = String.format("Hello %s,\n This is you OTP to Reset Your Password : %s\n",
-                    userParam.getEmail(), otp_number);
-
-            mailSenderService.sendmail(userParam.getEmail(), emailBody, "OTP To Reset Password");
+        if (userService.isValidEmail(user)) {
+            userService.optGenerator(user);
             return new ResponseEntity<>(HttpStatus.OK);
         }
 
         return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
 
+    @RequestMapping(value = "/checkotp", method = RequestMethod.POST)
+    public ResponseEntity checkotp(@RequestBody UserDTO userParam) throws Exception {
+        System.out.println(">>>>>>>>>>>>" + userParam.getOtp());
+
+        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    }
 }

@@ -10,13 +10,13 @@
 <body>
 	<div class="box">
 		<h2>FOR RECOVERY LINK </h2>
-		<form action="">
+		<form action="../../WEB-INF/jsp/OTPPage.jsp">
 			<div class="inputBox">
 				<input type="email" id= "email" name="email" required>
 				<label for="">Email</label>
 			</div>
 		
-			<input type="submit" name="" onclick="OTP(event)" value="Submit">
+			<input type="submit" name="" onclick="forget(event)" value="Submit">
 		</form>
 	</div>
 </body>
