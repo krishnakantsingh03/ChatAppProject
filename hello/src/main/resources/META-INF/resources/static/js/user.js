@@ -23,7 +23,7 @@ function login(event) {
 		return;
 	}
 
-	fetch("http://localhost:8085/login", {
+	fetch("http://localhost:8086/login", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json"
@@ -33,7 +33,6 @@ function login(event) {
 			password: password, 
 			username: ""})
 	}).then(data => data).then(res => {
-		console.log(res);
 		if (res.status == 200) {
 			swal("Great!", "LoggedIn Successfully", "success");
 		} else {
@@ -64,7 +63,7 @@ function signup(event){
 	if(user_password != confirm_password){
 		swal("OOPS!!!!!!", "Passsword Mis-match", "error");
 	}else{
-		fetch("http://localhost:8085/signup" , {
+		fetch("http://localhost:8086/signup" , {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -75,7 +74,6 @@ function signup(event){
 				password: user_password
 			})
 		}).then(data => data).then(res => {
-			console.log(res);
 			if (res.status == 200) {
 				swal("Great!", "Signed Up Successfully", "success");
 			} else {
@@ -99,7 +97,7 @@ function forget(event){
 		swal("OOPS!!!!!!", "Fill Up all the Columns", "warning");
 		return;
 	}
-	fetch("http://localhost:8085/sendotp", {
+	fetch("http://localhost:8086/sendotp", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json"
@@ -108,7 +106,6 @@ function forget(event){
 			email: otp_mail 
 		})
 	}).then(data => data).then(res => {
-		console.log(res);
 		if (res.status == 200) {
 			swal({
 				title: 'OPT sent Successfully',
@@ -116,7 +113,7 @@ function forget(event){
 			  });
 
 			setTimeout(()=>{
-				window.open("OTP", "_self");
+				window.open(`otp?email=${otp_mail}`, "_self");
 			},1500)
 		} else {
 			swal("OOPS!!!!!!", "Email is not Registered with Us", "error");
@@ -136,29 +133,40 @@ function Otp(event){
 	const user_otp = document.getElementById('otp').value;
 	console.log(user_otp);
 
+	const url = new URL(window.location.href);
+	const email = url.searchParams.get("email");
+
+	if (email === '' || email === null) {
+		console.log("######## SPECIFY EMAIL")
+		window.location.replace('/');
+		return;
+	}
+
+	console.log(">>>>>>>>>>>", email);
+
 	if(user_otp == ""){
 		swal("OOPS!!!!!!", "Please Enter the OTP", "warning");
 		return;
 	}
-	fetch("http://localhost:8085/checkotp", {
+	fetch("http://localhost:8086/checkotp", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json"
 		},
 		body: JSON.stringify({
-			otp: user_otp
+			otp: user_otp,
+			email: email
 		})
 	}).then(data => data).then(res => {
-			console.log(res);
-			if (res.status == 200) {
-					window.open("OTPPage", "_self");
-			} else {
-				swal("OOPS!!!!!!", "Incorrect OTP", "error");
-			}
+		if (res.status == 200) {
+			window.open(`setpassword?email=${email}`, "_self");		
+		} else {
+			swal("OOPS!!!!!!", "Incorrect OTP", "error");
+		}
 	
 	}).catch(err => {
-			swal("OOPS!!!!!!", "Incorrect OTP", "error");
-		})
+		swal("OOPS!!!!!!", "Incorrect OTP", "error");
+	})
 	 
 }
 
@@ -166,4 +174,33 @@ function setpassword(event){
 	event.preventDefault();
 
 	console.log("I am in setpassword");
+
+	const password = document.getElementById('newpassword').value;
+	const confirm_password = document.getElementById('confirmpassword').value;
+
+	if(password == " "){
+		swal("OOPS!!!!!!", "Fill the Columns", "error");
+	}
+	if(password != confirm_password){
+		swal("OOPS!!!!!!", "Passsword Mis-match", "warning");
+	}
+
+	fetch("http://localhost:8086/setpassword", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify({
+			password: password
+		})
+	}).then(data => data).then(res => {
+		if (res.status == 200) {
+			 swal("Great", "Password Reset Successfully", "success")		
+		} else {
+			swal("OOPS!!!!!!", "Password Reset Failed", "error");
+		}
+	
+	}).catch(err => {
+		swal("OOPS!!!!!!", "Password Reset Failed", "error");
+	})
 }

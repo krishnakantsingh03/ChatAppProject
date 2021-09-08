@@ -22,7 +22,7 @@ public class UserService {
     @Autowired
     private MailSenderService mailSenderService;
 
-    public void optGenerator(User user) {
+    public void otpGenerator(User user) {
         Random rand = new Random();
         int otp_number = rand.nextInt(9999);
 
@@ -75,5 +75,11 @@ public class UserService {
 
     public void saveUser(User user) throws Exception {
         userDAO.save(user);
+    }
+
+    public int getOtp(User user) throws Exception {
+        int user_otp = userDAO.getOtpByEmail(user);
+
+        return user_otp;
     }
 }

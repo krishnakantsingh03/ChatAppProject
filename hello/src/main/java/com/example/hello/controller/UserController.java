@@ -1,10 +1,7 @@
 package com.example.hello.controller;
 
-import java.util.Random;
-
 import com.example.hello.dto.UserDTO;
 import com.example.hello.model.User;
-import com.example.hello.repository.UserRepo;
 import com.example.hello.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -63,7 +60,7 @@ public class UserController {
         user.setEmail(userParam.getEmail());
 
         if (userService.isValidEmail(user)) {
-            userService.optGenerator(user);
+            userService.otpGenerator(user);
             return new ResponseEntity<>(HttpStatus.OK);
         }
 
@@ -72,8 +69,25 @@ public class UserController {
 
     @RequestMapping(value = "/checkotp", method = RequestMethod.POST)
     public ResponseEntity checkotp(@RequestBody UserDTO userParam) throws Exception {
-        System.out.println(">>>>>>>>>>>>" + userParam.getOtp());
+        System.out.println(">>>>>>>>>>>>" + userParam.getOtp() + ">>>>>" + userParam.getEmail());
 
+        User user = new User();
+
+        user.setEmail(userParam.getEmail());
+        int user_otp = userService.getOtp(user);
+
+        if (user_otp == userParam.getOtp()) {
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    }
+
+    @RequestMapping(value = "/setpassword", method = RequestMethod.POST)
+    public ResponseEntity setpassword(@RequestBody UserDTO userParam) throws Exception {
+
+        System.out.println(">>>>>>>>" + userParam.getPassword() + ">>>>>>>>>>" + userParam.getEmail());
+
+        // userService.setPassword()
         return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
 }

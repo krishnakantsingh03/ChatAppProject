@@ -11,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import lombok.var;
+
 @Repository
 public class UserDAO {
 
@@ -33,5 +35,16 @@ public class UserDAO {
         String updateQuery = String.format("UPDATE users SET otp = %d where email = '%s'", otp, user.getEmail());
         System.out.println("[REPOSITORY]::[USERDAO]::[Update]::updateQuery " + updateQuery);
         jdbcTemplate.execute(updateQuery);
+    }
+
+    public int getOtpByEmail(User user) {
+
+        String selectQuery = String.format("SELECT otp FROM users where email = '%s'", user.getEmail());
+
+        System.out.println("[REPOSITORY]::[USERDAO]::[Select]::SelectQuery " + selectQuery);
+        var resultSet = jdbcTemplate.queryForList(selectQuery);
+
+        var num = resultSet.get(0).get("otp").toString();
+        return Integer.parseInt(num);
     }
 }
