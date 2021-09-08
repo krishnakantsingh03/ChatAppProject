@@ -188,7 +188,7 @@ function setpassword(event){
 	}
 
 	if(password != confirm_password){
-		swal("OOPS!!!!!!", "Passsword Mis-match", "warning");
+		swal("OOPS!!!!!!", "Password Mis-match", "warning");
 		return;
 	}
 
