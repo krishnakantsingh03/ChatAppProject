@@ -178,11 +178,18 @@ function setpassword(event){
 	const password = document.getElementById('newpassword').value;
 	const confirm_password = document.getElementById('confirmpassword').value;
 
-	if(password == " "){
+	const url = new URL(window.location.href);
+	const email = url.searchParams.get("email");
+
+	console.log(password, confirm_password);
+	if(password == ""){
 		swal("OOPS!!!!!!", "Fill the Columns", "error");
+		return;
 	}
+
 	if(password != confirm_password){
 		swal("OOPS!!!!!!", "Passsword Mis-match", "warning");
+		return;
 	}
 
 	fetch("http://localhost:8086/setpassword", {
@@ -191,11 +198,16 @@ function setpassword(event){
 			"Content-Type": "application/json"
 		},
 		body: JSON.stringify({
-			password: password
+			password: password,
+			email: email
 		})
 	}).then(data => data).then(res => {
 		if (res.status == 200) {
-			 swal("Great", "Password Reset Successfully", "success")		
+			 swal("Great", "Password Reset Successfully", "success");
+			 setTimeout(()=>{
+				window.open("/", "_self")		 
+			},1000)	
+			  
 		} else {
 			swal("OOPS!!!!!!", "Password Reset Failed", "error");
 		}

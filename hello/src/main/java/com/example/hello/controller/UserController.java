@@ -85,9 +85,14 @@ public class UserController {
     @RequestMapping(value = "/setpassword", method = RequestMethod.POST)
     public ResponseEntity setpassword(@RequestBody UserDTO userParam) throws Exception {
 
-        System.out.println(">>>>>>>>" + userParam.getPassword() + ">>>>>>>>>>" + userParam.getEmail());
+        System.out.println("Set>>>>>>>>" + userParam.getPassword() + ">>>>>>>>>>" + userParam.getEmail());
 
-        // userService.setPassword()
-        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        User user = new User();
+
+        user.setPassword(userParam.getPassword());
+        user.setEmail(userParam.getEmail());
+
+        userService.setPassword(user);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

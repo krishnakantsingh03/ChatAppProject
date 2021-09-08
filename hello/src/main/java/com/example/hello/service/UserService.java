@@ -82,4 +82,8 @@ public class UserService {
 
         return user_otp;
     }
+
+    public void setPassword(User user) throws Exception {
+        userDAO.UpdatePassword(user);
+    }
 }

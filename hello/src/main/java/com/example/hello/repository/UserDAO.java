@@ -47,4 +47,11 @@ public class UserDAO {
         var num = resultSet.get(0).get("otp").toString();
         return Integer.parseInt(num);
     }
+
+    public void UpdatePassword(User user) {
+        String updateQuery = String.format("UPDATE users SET password = '%s' where email = '%s'", user.getPassword(),
+                user.getEmail());
+        System.out.println("[REPOSITORY]::[USERDAO]::[Update]::updateQuery " + updateQuery);
+        jdbcTemplate.execute(updateQuery);
+    }
 }

@@ -12,17 +12,17 @@
 		<h2>SET PASSWORD</h2>
 		<form action="">
 			<div class="inputBox">
-				<input type="text" id="newpassword" name="New Password" required="">
+				<input type="password" id="newpassword" name="New Password" required="">
 				<label for="">New Password</label>
 			</div>
             
             <br>
             <div class="inputBox">
-				<input type="text" id = "confirmpassword" name="Confirm Password" required="">
+				<input type="password" id = "confirmpassword" name="Confirm Password" required="">
 				<label for="">Confirm Password</label>
 			</div>
 		
-			<input type="submit" name="" onclick="otp(event)" value="Submit">
+			<input type="submit" name="" onclick="setpassword(event)" value="Submit">
 		</form>
 	</div>
 </body>
